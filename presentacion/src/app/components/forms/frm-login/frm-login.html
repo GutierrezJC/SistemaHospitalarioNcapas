@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>
+    <mat-icon>person</mat-icon> Login
+</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+    <!-- el contenido asi se llama la etiquta CUANDO LLAME AL SUBMIT LLAME A LA FUNCION ON LOGIN -->
+    <form id="miformulario" [formGroup]="frmLogin" (ngSubmit)="onLogin()">
+        <mat-form-field class="w-full">
+            <mat-label>Usuario</mat-label>
+            <input matInput formControlName="identificacion">
+        </mat-form-field>
+        
+        <mat-form-field class="w-full">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="passw">
+        </mat-form-field>
+
+        <input type="hidden" formControlName="id" value="0">
+
+
+    </form>
+
+</mat-dialog-content>
+<mat-divider></mat-divider>
+
+<mat-dialog-actions>
+    <button mat-button type="submit" form="miformulario">Iniciar</button>
+    <button mat-button [mat-dialog-close]="false">Cancelar</button>
+</mat-dialog-actions>

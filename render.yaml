@@ -62,7 +62,7 @@ services:
   - type: web
     name: presentacion-web
     env: docker
-    dockerfilePath: ./presentacion/hvpresentacion/Dockerfile
+    dockerfilePath: ./presentacion/Dockerfile
     envVars:
       - key: API_URL
         fromService:

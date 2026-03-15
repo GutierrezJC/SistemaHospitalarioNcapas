@@ -1,65 +1,67 @@
-# ===== PROYECTO LENGUAJES - .gitignore CONSOLIDADO =====
-
 # ===== BASE DE DATOS =====
-mysql/                          # Datos temporales de MySQL
-*.sql.backup                    # Backups temporales
+mysql/
+*.sql.backup
 
 # ===== NODE/ANGULAR =====
-**/node_modules/               # Dependencias de npm (se instalan automáticamente)
-**/dist/                       # Archivos compilados (se generan automáticamente)
-**/.angular/                   # Toda la carpeta de cache de Angular
-npm-debug.log                  # Logs de npm
-yarn-error.log                 # Logs de yarn
-package-lock.json.backup       # Backups del lock file
+**/node_modules/
+**/dist/
+**/.angular/
+npm-debug.log
+yarn-error.log
+package-lock.json.backup
 
 # ===== ARCHIVOS COMPILADOS =====
-/tmp                           # Archivos temporales
-/out-tsc                       # Compilación TypeScript
-/bazel-out                     # Compilación Bazel
+/tmp
+/out-tsc
+/bazel-out
 
 # ===== IDEs y EDITORES =====
-.idea/                         # IntelliJ IDEA
-.project                       # Eclipse
-.classpath                     # Eclipse
-.c9/                          # Cloud9
-*.launch                       # Eclipse launch configs
-.settings/                     # Eclipse settings
-*.sublime-workspace            # Sublime Text
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
 # ===== Visual Studio Code =====
-.vscode/*                      # Configuración de VSCode
-!.vscode/settings.json         # EXCEPT: settings compartidos
-!.vscode/tasks.json           # EXCEPT: tareas compartidas
-!.vscode/launch.json          # EXCEPT: configuración de debug
-!.vscode/extensions.json      # EXCEPT: extensiones recomendadas
-.history/*                    # Historial de VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # ===== ARCHIVOS TEMPORALES =====
-.sass-cache/                   # Cache de Sass
-/connect.lock                  # Lock files
-/coverage                      # Reportes de cobertura
-/libpeerconnection.log        # WebRTC logs
-testem.log                    # Testem logs
-/typings                      # Archivos de tipos antiguos
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
 
 # ===== ARCHIVOS DE SISTEMA =====
-.DS_Store                     # macOS
-Thumbs.db                     # Windows
+.DS_Store
+Thumbs.db
 
-# ===== ARCHIVOS SECRETOS (MUY IMPORTANTE) =====
-.env.secrets                  # Variables secretas para despliegue
-.env.local                    # Variables locales
-.env.production              # Variables de producción  
-*.env                        # Cualquier archivo de entorno
-*password*                   # Cualquier archivo con passwords
-db_password.txt             # Archivo de contraseña de BD (si existe)
+# ===== ARCHIVOS SECRETOS =====
+.env.secrets
+.env.local
+.env.production
+*.env
+*password*
+db_password.txt
+
+# ===== PYTHON =====
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.env
 
 # ===== PHP/COMPOSER =====
-**/vendor/                     # Dependencias de Composer (se instalan automáticamente)
-composer.lock.backup           # Backups del lock file
+**/vendor/
+composer.lock.backup
 
-# ===== LOGS GENERALES =====
-*.log                         # Todos los archivos de log
-
-# ===== DOCKER (opcional) =====
-# docker-compose.override.yml  # Overrides locales si los usas
+# ===== LOGS =====
+*.log

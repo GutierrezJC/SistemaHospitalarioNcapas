@@ -28,10 +28,14 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    links:
+      - db
+    depends_on:
+      - db
     ports:
       - 8080:80
     environment:
-      - PMA_HOST=db
+      - PMA_HOST=192.168.0.10
       - PMA_PORT=3306
     networks:
       dto-red:
@@ -40,12 +44,12 @@ services:
   
   webdatos:
     container_name: web_datos
-    volumes:
-      - ./datos/src:/var/www/html/src
-      - ./datos/public:/var/www/html/public
     build:
-      context: .
-      dockerfile: ./datos/Dockerfile
+      context: ./pydatos
+      dockerfile: Dockerfile
+    volumes:
+      - ./pydatos/app:/app/app
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
     ports:
       - 8000:80
     depends_on:
@@ -56,12 +60,12 @@ services:
 
   webnegocio:
     container_name: web_negocio
-    volumes:
-      - ./negocio/src:/var/www/html/src
-      - ./negocio/public:/var/www/html/public
     build:
-      context: .
-      dockerfile: ./negocio/Dockerfile
+      context: ./pynegocio
+      dockerfile: Dockerfile
+    volumes:
+      - ./pynegocio/app:/app/app
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
     ports:
       - 9000:80
     depends_on:
@@ -73,7 +77,7 @@ services:
   webpresentacion:
     container_name: web_presentacion
     build:
-      context: ./presentacion/hvpresentacion
+      context: ./presentacion
       dockerfile: Dockerfile
     ports:
       - 4201:80  # Cambiar a puerto 4201

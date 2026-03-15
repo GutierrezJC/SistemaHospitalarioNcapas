@@ -135,6 +135,7 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
 DROP TRIGGER IF EXISTS trg_visita_finalizada$$
 CREATE TRIGGER trg_visita_finalizada
 BEFORE UPDATE ON visita
